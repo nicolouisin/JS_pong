@@ -85,6 +85,7 @@ function draw() {
 
 
 	fill(255,255,255,255);
+	stroke(255,255,255,255);
 	ellipse(px,y,x,x);
 	rect(mouseX,mouseY,Lrectangle,2);
 
