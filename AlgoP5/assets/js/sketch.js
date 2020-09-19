@@ -52,7 +52,7 @@ function draw() {
 	}
 
 	//gestion du rebond en haut et sur le rectangle
-	if((y>=taille_ecran/1.5 || (y>=mouseY&&(px>=mouseX && px<=mouseX+Lrectangle)) )&& verticale=="bas" ){
+	if((y>=taille_ecran/1.5 || ((y>=mouseY&&y<=mouseY+15)&&(px>=mouseX && px<=mouseX+Lrectangle)) )&& verticale=="bas" ){
 		verticale="haut";
 		if(!(px>=mouseX && px<=mouseX+Lrectangle)){
 			vie=vie-1;
