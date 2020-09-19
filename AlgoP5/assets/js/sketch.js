@@ -9,7 +9,7 @@ let y;
 let verticale;
 let vy;
 let Lrectangle;
-
+let i=5;
 
 function preload() {
 }
@@ -26,11 +26,13 @@ function setup(){
 	y=20;
 	vy=1;
 	Lrectangle=50;
-	vie=1;
+	vie=5;
+	lvl=0;
 }
 
 
 function draw() {
+
 	//fond de l'ecran
 	background(0);
 
@@ -52,11 +54,19 @@ function draw() {
 	}
 
 	//gestion du rebond en haut et sur le rectangle
-	if((y>=taille_ecran/1.5 || ((y>=mouseY&&y<=mouseY+15)&&(px>=mouseX && px<=mouseX+Lrectangle)) )&& verticale=="bas" ){
+	if((y>=taille_ecran/1.5 || ((y>=mouseY&&y<=mouseY+15)&&(px+5>=mouseX && px+5<=mouseX+Lrectangle)) )&& verticale=="bas" ){
 		verticale="haut";
-		if(!(px>=mouseX && px<=mouseX+Lrectangle)){
+		if(!(px>=mouseX && px<=mouseX+Lrectangle)&&y>=taille_ecran/1.5){
 			vie=vie-1;
 	}
+		if((y>=mouseY&&y<=mouseY+15)&&(px+5>=mouseX && px+5<=mouseX+Lrectangle)){
+			i--;
+			if(i==0) {
+				lvl+=1;
+				vx += lvl;
+				i=lvl*10;
+			}
+		}
 	}
 	if((y<=x/2) && (verticale=="haut")){
 		verticale="bas";
@@ -69,14 +79,16 @@ function draw() {
 		y=y-vy-2;
 	}
 
+	if(vie<=0){
+		window.alert("vous avez perdu au niv "+lvl+"!! fait f5 puis appuie sur ok pour rejouer");
+	}
+
 
 	fill(255,255,255,255);
 	ellipse(px,y,x,x);
-	rect(mouseX,mouseY,Lrectangle,15);
+	rect(mouseX,mouseY,Lrectangle,2);
 
-
-	rect(800,0,50,50);
-
+	rect(800,80,50,50);
 
 
 }
