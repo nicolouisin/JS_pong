@@ -68,7 +68,7 @@ function draw() {
 				lvl+=1;
 				vx += lvl;
 				i=lvl*10;
-				if(vie<=5){
+				if(vie<5){
 					vie+=1;
 				}
 				if(lvl%2==0){
